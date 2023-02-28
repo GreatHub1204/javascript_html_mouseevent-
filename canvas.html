@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Canvas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script type="text/javascript" src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/style.min.css'>
+    <link rel="stylesheet" href="./assets/css/color.css">
+
+    <script src="./assets/js/color.js"></script>
+
+</head>
+
+<body>
+    <div class="context-menu" id="context-menu">
+        <div class="item color">
+            <p>color</p><input type="color" class="target" id="colorWell" name="head" value="#000000"></div>
+        <div class="item resize"><a href="javascript:resizable()">Resize</a> </div>
+    </div>
+    <div class="resizer_box">
+        <div class="resizer top_left" id="top_left" onclick=""></div>
+        <div class="resizer top_right" id="top_right"></div>
+        <div class="resizer bottom_right" id="bottom_right"></div>
+        <div class="resizer bottom_left" id="bottom_left"></div>
+    </div>
+
+
+
+    <div class="container d-flex just-center" id="container">
+        <div class="source"></div>
+        <div class="wrap d-flex just-center">
+            <div class="topic">
+                <p>
+                    JavaScript Canvas
+                </p>
+            </div>
+            <div class="itemfield d-flex just-center">
+
+                <div class="itemarea">
+                    <div class="itemcolumn">
+                        <div class="item">
+                            <img src="./assets/image/eraser.png" class="eraser" id="eraser" onclick="eraser_pointer()">
+                        </div>
+
+                        <div id="drag1_box" class="item">
+                            <img src="./assets/image/1.png" id="drag1" class="drag1" onmousedown="MouseDown(event)">
+                        </div>
+
+                        <div id="drag2_box" class="item" class="drag2">
+                            <img src="./assets/image/2.png" onmousedown="MouseDown(event)" id="drag2" class="drag2" alt="">
+                        </div>
+
+                        <div id="drag3_box" class="item">
+                            <img src="./assets/image/3.png" draggable="true" onmousedown="MouseDown(event)" id="drag3" class="drag3">
+                        </div>
+
+                        <div id="drag4_box" class="item">
+                            <img src="./assets/image/4.png" draggable="true" onmousedown="MouseDown(event)" id="drag4" class="drag4">
+                        </div>
+
+                        <div id="drag5_box" class="item">
+                            <img src="./assets/image/5.png" draggable="true" onmousedown="MouseDown(event)" id="drag5" class="drag5">
+                        </div>
+
+                        <div id="drag6_box" class="item">
+                            <img src="./assets/image/6.png" onmousedown="MouseDown(event)" id="drag6" class="drag6">
+                        </div>
+
+                        <div id="drag7_box" class="item">
+                            <img src="./assets/image/7.png" onmousedown="MouseDown(event)" id="drag7" class="drag7">
+                        </div>
+                    </div>
+                    <div class="itemcolumn">
+                        <div id="drag8_box" class="item">
+                            <img src="./assets/image/8.png" onmousedown="MouseDown(event)" id="drag8" class="drag8">
+                        </div>
+
+                        <div id="drag9_box" class="item">
+                            <img src="./assets/image/9.png" onmousedown="MouseDown(event)" id="drag9" class="drag9">
+                        </div>
+
+                        <div id="drg10_box" class="item">
+                            <img src="./assets/image/10.png" onmousedown="MouseDown(event)" id="drg10" class="drg10">
+                        </div>
+
+                        <div id="drg11_box">
+                            <img src="./assets/image/11.png" onmousedown="MouseDown(event)" id="drg11" class="drg11">
+                        </div>
+
+                        <div id="drg12_box" class="item">
+                            <img src="./assets/image/12.png" onmousedown="MouseDown(event)" id="drg12" class="drg12">
+                        </div>
+
+                        <div id="drg13_box" class="item">
+                            <img src="./assets/image/13.png" onmousedown="MouseDown(event)" id="drg13" class="drg13">
+                        </div>
+
+                        <div id="drg14_box" class="item">
+                            <img src="./assets/image/14.png" onmousedown="MouseDown(event)" id="drg14" class="drg14">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="html-content-holder" class="image d-flex just-center" style="background-color: #ffffff; border:1px solid #000;">
+                <img class="bg" src="./assets/image/BackGround.png">
+            </div>
+            <div class="buttonarea d-flex just-center">
+                <a onclick="takeshot()" id="btn-Preview-Image">登録</a>
+                <a onclick="javascript:reload()">全消去</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="output">
+        <a id="btn-Convert-Html2Image" style="display:none">Download</a>
+    </div>
+
+
+    <script>
+        var element = $("#html-content-holder"); // global variable
+        var getCanvas; // global variable
+
+
+        function takeshot() {
+            let div =
+                document.getElementById('html-content-holder');
+            document.getElementById('btn-Convert-Html2Image').style.display = "block";
+
+            // Use the html2canvas
+            // function to take a screenshot
+            // and append it
+            // to the output div
+            html2canvas(div).then(
+                function(canvas) {
+                    document
+                        .getElementById('output')
+                        .appendChild(canvas);
+                    getCanvas = canvas;
+                });
+        }
+        $(document).ready(function() {
+
+            $("#btn-Convert-Html2Image").on('click', function() {
+                var imgageData = getCanvas.toDataURL("image/png");
+                // Now browser starts downloading it instead of just showing it
+                var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+            });
+        });
+
+
+        function ContextMenu(e) {
+            e.preventDefault();
+
+            var menuX = e.clientX + 20;
+            var menuY = e.clientY + 10;
+            choose(event);
+            const contextMenu = document.getElementById('context-menu');
+            contextMenu.style.left = menuX + "px";
+            contextMenu.style.top = menuY + "px";
+            contextMenu.style.display = "block";
+        }
+
+
+
+        if (document.addEventListener) {
+            let hidden = document.getElementById('html-content-holder');
+            hidden.addEventListener('click', function(e) {
+                //here you draw your own menu
+                e.preventDefault();
+
+                const contextMenu = document.getElementById('context-menu');
+                const resize = document.getElementsByClassName('resizer');
+                contextMenu.style.display = "none";
+                for (var i = 0; i < resize.length; i++) {
+                    resize[i].style.display = "none";
+                }
+
+            }, false);
+        } else {
+            document.attachEvent('oncontextmenu', function() {
+                alert("You've tried to open context menu");
+                window.event.returnValue = false;
+            });
+        }
+
+
+        function reload() {
+            location.reload();
+        }
+    </script>
+    <script>
+        function readTextFile(file) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function() {
+                if (rawFile.readyState === 4) {
+                    if (rawFile.status === 200 || rawFile.status == 0) {
+                        var allText = rawFile.responseText;
+                        var s_t = allText.split(",");
+                        var html = $(".itemarea").html();
+                        console.log("wfsdf", s_t.length);
+                        if (s_t.length >= 1) {
+                            $(".itemarea").html(html + "<div class='itemcolumn1'></div>");
+                            html = $(".itemarea").html();
+                            var html_col1 = $(".itemcolumn1").html();
+
+                            for (var i = 0; i < s_t.length; i++) {
+                                html_col1 = $(".itemcolumn1").html();
+                                $(".itemcolumn1").html(html_col1 +
+                                    "<div id='dreg" + i + "_box'class='item'><img src='./assets/image/" + s_t[i] + "'onmousedown='MouseDown(event)' id='dreg" + i + "' class='dreg" + i + "'></div>"
+                                );
+                            }
+                        }
+                        if (s_t == "") {
+                            $(".itemcolumn1").remove();
+                        }
+
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+
+        readTextFile("./test.txt"); //GOOD
+    </script>
+
+    <script src="./assets/js/style.min.js"></script>
+</body>
+
+</html>

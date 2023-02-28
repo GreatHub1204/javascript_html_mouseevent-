@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+.container {
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+.d-flex {
+    display: flex;
+}
+.just-center {
+    justify-content: center;
+}
+.container p {
+    font-size: 50px;
+}
+.wrap {
+    max-width: 1200px;
+    width: 100%;
+    height: 800px;
+    border: 1px solid black;
+    border-radius: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.itemfield {
+    width:90%;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-top: 50px;
+    align-items: center;
+}
+.colorarea {
+    flex-direction: column;
+    margin: 30px 50px;
+}
+.color {
+    width: 50px;
+    height: 50px;
+    border: 1px solid grey;
+}
+.one {
+    background-color: red;
+}
+.two {
+    background-color: #28aecf;
+}
+.three {
+    background-color: black;
+}
+
+
+.itemarea{
+    
+    width: 80%;
+}
+.itemcolumn{
+    width: 100%;
+    height: 100px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#item{
+    border: 1px solid;
+    width: 12%;
+    height: 100%;
+}
+#ruler{
+    width: 24%;
+    height: 100%;
+    border: 1px solid;
+}
+img{
+    width: 95px;
+    height: 95px;
+    cursor:move;
+}
+img.eraser{
+    cursor: pointer;
+}
+
+
+#newId{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+
+
+.image {
+    width: 80%;
+    height: 300px;
+    margin-top: 50px;
+    background-color: white;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    border: 1px solid black;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+}
+.image .bg{
+    width: 100%;
+    height: 100%;
+}
+
+.buttonarea  a{
+    margin: 50px 30px;
+    width: auto;
+    height: auto;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #29e;
+    text-align: center;
+    cursor: pointer;
+}
+.buttonarea  a:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
