@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="./assets/css/color.css">
 
     <script src="./assets/js/color.js"></script>
+    <script src="./assets/js/draw.js"></script>
 
 </head>
 
-<body>
+<body onload="init()">
     <div class="context-menu" id="context-menu">
         <div class="item color">
             <p>color</p><input type="color" class="target" id="colorWell" name="head" value="#000000"></div>
@@ -105,7 +106,7 @@
                 </div>
             </div>
             <div id="html-content-holder" class="image d-flex just-center" style="background-color: #ffffff; border:1px solid #000;">
-                <img class="bg" src="./assets/image/BackGround.png">
+                <canvas id="can" width="960" height="295"></canvas>
             </div>
             <div class="buttonarea d-flex just-center">
                 <a onclick="takeshot()" id="btn-Preview-Image">登録</a>
