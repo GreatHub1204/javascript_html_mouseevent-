@@ -170,19 +170,29 @@
             });
         });
 
-
         function ContextMenu(e) {
             e.preventDefault();
 
             var menuX = e.clientX + 20;
             var menuY = e.clientY + 10;
             choose(event);
+            let dragid = select.slice(0, 5);
             const contextMenu = document.getElementById('context-menu');
-            contextMenu.style.left = menuX + "px";
-            contextMenu.style.top = menuY + "px";
-            contextMenu.style.display = "block";
-        }
 
+            if (dragid != "drg14") {
+                contextMenu.style.left = menuX + "px";
+                contextMenu.style.top = menuY + "px";
+                contextMenu.style.display = "block";
+                $(".item.color").attr("style", "visibility:visible");
+            } else {
+                contextMenu.style.left = menuX + "px";
+                contextMenu.style.top = menuY + "px";
+                $(".item.color").attr("style", "visibility:hidden; height:0; margin:0; padding:0");
+                $(".item.resize").attr("style", "margin:0; padding:0; border:none");
+                contextMenu.style.display = "block";
+            }
+
+        }
 
 
         if (document.addEventListener) {

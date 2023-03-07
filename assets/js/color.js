@@ -222,6 +222,7 @@ var select = "";
 
 function choose(e) {
     select = e.currentTarget.id;
+    return select;
 }
 
 let delete_status = false;

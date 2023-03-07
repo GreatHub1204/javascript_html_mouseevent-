@@ -233,6 +233,44 @@ a {
     margin: 12px 0;
 }
 
+#context-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 150px;
+    background-color: skyblue;
+    border-radius: 5px;
+}
+
+#context-menu14 {
+    display: none;
+}
+
+#context-menu14 .item {
+    padding: 5px 10px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    border-radius: inherit;
+}
+
+#context-menu14 .item:hover {
+    background-color: #343434;
+    color: white;
+}
+
+#context-menu14 .resize button {
+    width: 100%;
+    border-radius: 5px;
+    padding: 4px 8px;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 12px 0;
+}
+
 .resizer_box {
     width: 100%;
     height: 100%;
