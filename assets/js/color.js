@@ -241,7 +241,6 @@ function eraser_pointer() {
     }
 }
 
-
 function color_pan_position() {
     var drag1 = document.getElementById('drag1');
     document.getElementById('can').style.display = "block";
@@ -252,9 +251,24 @@ function color_pan_position() {
     color_pan.style.top = drag1_Y - 100 + "px";
     color_pan.style.visibility = "visible";
     $(".image canvas").css({ 'cursor': "url('./assets/image/pen.png'), auto" });
+    if (delete_status == true) {
+        delete_status = false;
+    }
 }
 
 
+document.addEventListener('keydown', function(event) {
+
+    if (event.keyCode == 27) {
+        if (delete_status == true) {
+            delete_status = false;
+            $(".image img").css({ 'cursor': 'move' });
+
+        }
+        // $(".image canvas").css({ 'cursor': "pointer" });
+        // document.getElementById('can').style.display = "none";
+    }
+});
 
 let colorWell;
 const defaultColor = "#0000ff";
@@ -496,6 +510,7 @@ function del_elem(e) {
             w = canvas.width;
             h = canvas.height;
             ctx.clearRect(0, 0, w, h);
+            canvas.style.display = "none";
         }
     }
 }
