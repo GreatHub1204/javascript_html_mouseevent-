@@ -13,8 +13,6 @@ function init() {
     ctx = canvas.getContext("2d");
     w = canvas.width;
     h = canvas.height;
-
-
     canvas.addEventListener("mousemove", function(e) {
         findxy('move', e)
     }, false);
@@ -29,33 +27,22 @@ function init() {
     }, false);
 }
 
-function color(obj) {
+function setcolor(obj) {
     switch (obj.id) {
         case "green":
-            x = "green";
+            x = "#28aecf";
             break;
-        case "blue":
-            x = "blue";
-            break;
+
         case "red":
             x = "red";
             break;
-        case "yellow":
-            x = "yellow";
-            break;
-        case "orange":
-            x = "orange";
-            break;
+
         case "black":
             x = "black";
             break;
-        case "white":
-            x = "white";
-            break;
     }
-    if (x == "white") y = 14;
-    else y = 2;
-
+    y = 4;
+    document.getElementById('colorpattern').style.visibility = "hidden";
 }
 
 function draw() {
@@ -79,6 +66,7 @@ function erase() {
 function save() {
     document.getElementById("canvasimg").style.border = "2px solid";
     var dataURL = canvas.toDataURL();
+    alert(dataURL);
     document.getElementById("canvasimg").src = dataURL;
     document.getElementById("canvasimg").style.display = "inline";
 }
@@ -89,7 +77,6 @@ function findxy(res, e) {
         prevY = currY;
         currX = e.clientX - canvas.offsetLeft;
         currY = e.clientY - canvas.offsetTop;
-
         flag = true;
         dot_flag = true;
         if (dot_flag) {

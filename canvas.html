@@ -20,14 +20,32 @@
 <body onload="init()">
     <div class="context-menu" id="context-menu">
         <div class="item color">
-            <p>color</p><input type="color" class="target" id="colorWell" name="head" value="#000000"></div>
-        <div class="item resize"><a href="javascript:resizable()">Resize</a> </div>
+            <p>赤</p>
+            <div id="red" onclick="change_png(this)"></div>
+
+        </div>
+        <div class="item color">
+
+            <p>水色</p>
+            <div id="green" onclick="change_png(this)"></div>
+        </div>
+        <div class="item color">
+
+            <p>黒</p>
+            <div id="black" onclick="change_png(this)"></div>
+        </div>
+        <div class="item resize"><button onclick="javascript:resizable()">Resize</button> </div>
     </div>
     <div class="resizer_box">
         <div class="resizer top_left" id="top_left" onclick=""></div>
         <div class="resizer top_right" id="top_right"></div>
         <div class="resizer bottom_right" id="bottom_right"></div>
         <div class="resizer bottom_left" id="bottom_left"></div>
+    </div>
+    <div class="colorpattern" id="colorpattern">
+        <div id="red" onclick="setcolor(this)"></div>
+        <div id="green" onclick="setcolor(this)"></div>
+        <div id="black" onclick="setcolor(this)"></div>
     </div>
     <div class="container d-flex just-center" id="container">
         <div class="source"></div>
@@ -46,7 +64,7 @@
                         </div>
 
                         <div id="drag1_box" class="item">
-                            <img src="./assets/image/1.png" id="drag1" class="drag1" onmousedown="MouseDown(event)">
+                            <img src="./assets/image/1.png" id="drag1" class="drag1" onclick="color_pan_position()">
                         </div>
 
                         <div id="drag2_box" class="item" class="drag2">
@@ -106,7 +124,7 @@
                 </div>
             </div>
             <div id="html-content-holder" class="image d-flex just-center" style="background-color: #ffffff; border:1px solid #000;">
-                <canvas id="can" width="960" height="295"></canvas>
+                <canvas id="can" width="960" height="295" onclick="del_elem(event)"></canvas>
             </div>
             <div class="buttonarea d-flex just-center">
                 <a onclick="takeshot()" id="btn-Preview-Image">登録</a>
