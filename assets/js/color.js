@@ -265,9 +265,8 @@ document.addEventListener('keydown', function(event) {
             $(".image img").css({ 'cursor': 'move' });
 
         }
-        alert(0)
-            // $(".image canvas").css({ 'cursor': "pointer" });
-            // document.getElementById('can').style.display = "none";
+        // $(".image canvas").css({ 'cursor': "pointer" });
+        // document.getElementById('can').style.display = "none";
     }
 });
 
