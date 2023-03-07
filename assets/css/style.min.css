@@ -7,6 +7,38 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.colorpattern {
+    position: absolute;
+    width: 200px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    visibility: hidden;
+}
+
+.colorpattern div {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+#drag1 {
+    cursor: pointer;
+}
+
+div#red {
+    background-color: red;
+}
+
+div#green {
+    background-color: #28aecf;
+}
+
+div#black {
+    background-color: black;
+}
+
 a {
     text-align: center;
     text-decoration: none;
@@ -70,33 +102,6 @@ a {
     align-items: center;
 }
 
-.colorarea {
-    flex-direction: column;
-    margin: 30px 50px;
-}
-
-.color {
-    width: 50px;
-    height: 50px;
-    border: 1px solid grey;
-}
-
-.one {
-    background-color: red;
-}
-
-.two {
-    background-color: #28aecf;
-}
-
-.three {
-    background-color: black;
-}
-
-.itemarea {
-    width: 80%;
-}
-
 .itemcolumn,
 .itemcolumn1 {
     width: 100%;
@@ -114,6 +119,18 @@ a {
     width: 12%;
     height: 100%;
     margin: 0 1px;
+}
+
+.item div {
+    width: 30px;
+    height: 30px;
+}
+
+.item p {
+    width: 80px;
+    font-size: 20px;
+    padding: 0 10px;
+    margin: 0;
 }
 
 #drg11_box {
@@ -138,6 +155,7 @@ img.eraser {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 #newId {
@@ -150,15 +168,15 @@ img.eraser {
     width: 80%;
     height: 300px;
     margin-top: 50px;
-    background-position: center;
-    background-size: 100%;
+    background: url(../image/BackGround.png);
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-position: center;
+    background-size: contain;
 }
 
-.image .bg {
-    width: 100%;
-    height: 100%;
+.image canvas {
+    position: absolute;
+    display: none;
 }
 
 a {
@@ -181,7 +199,7 @@ a {
     position: fixed;
     z-index: 10000;
     width: 150px;
-    background-color: #1b1a1a;
+    background-color: skyblue;
     border-radius: 5px;
 }
 
@@ -190,24 +208,37 @@ a {
 }
 
 #context-menu .item {
-    padding: 8px 10px;
+    padding: 5px 10px;
+    margin: 0;
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 15px;
-    color: #eee;
+    color: black;
     cursor: pointer;
     border-radius: inherit;
 }
 
 #context-menu .item:hover {
     background-color: #343434;
+    color: white;
 }
 
-#context-menu .resize a {
+#context-menu .resize button {
     width: 100%;
-    color: white;
+    border-radius: 5px;
+    padding: 4px 8px;
+    color: black;
     cursor: pointer;
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+#context-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 150px;
+    background-color: skyblue;
+    border-radius: 5px;
 }
 
 .resizer_box {
