@@ -123,9 +123,12 @@
                     </div>
                 </div>
             </div>
-            <div id="html-content-holder" class="image d-flex just-center" style="background-color: #ffffff; border:1px solid #000;">
-                <canvas id="can" width="960" height="295" onclick="del_elem(event)"></canvas>
+            <div id="print_box" class="print_box">
+                <div id="html-content-holder" class="image d-flex just-center" style="background-color: #ffffff">
+                    <canvas id="can" width="960" height="295" onclick="del_elem(event)"></canvas>
+                </div>
             </div>
+            
             <div class="buttonarea d-flex just-center">
                 <a onclick="takeshot()" id="btn-Preview-Image">登録</a>
                 <a onclick="javascript:reload()">全消去</a>
@@ -139,13 +142,13 @@
 
 
     <script>
-        var element = $("#html-content-holder"); // global variable
+        var element = $("#print_box"); // global variable
         var getCanvas; // global variable
 
 
         function takeshot() {
             let div =
-                document.getElementById('html-content-holder');
+                document.getElementById('print_box');
             document.getElementById('btn-Convert-Html2Image').style.display = "block";
 
             // Use the html2canvas
@@ -196,7 +199,7 @@
 
 
         if (document.addEventListener) {
-            let hidden = document.getElementById('html-content-holder');
+            let hidden = document.getElementById('print_box');
             hidden.addEventListener('click', function(e) {
                 //here you draw your own menu
                 e.preventDefault();

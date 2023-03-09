@@ -161,13 +161,20 @@ img.eraser {
 #newId {
     width: 100px;
     height: 100px;
+    
     position: absolute;
 }
 
-.image {
-    width: 80%;
-    height: 300px;
+.print_box{
+    padding: 30px;
     margin-top: 50px;
+    border: 1px solid lightgreen;
+}
+
+.print_box .image {
+    width: 800px;
+    height: 300px;
+    
     background: url(../image/BackGround.png);
     background-repeat: no-repeat;
     background-position: center;
