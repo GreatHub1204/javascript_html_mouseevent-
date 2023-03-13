@@ -136,7 +136,7 @@
             </div>
 
             <div class="buttonarea d-flex just-center">
-                <a onmousedown="takeshot()" id="btn-Preview-Image" download="ダウンロード.png">登録</a>
+                <a  id="btn-Preview-Image" >登録</a>
                 <a onclick="javascript:reload()">全消去</a>
             </div>
         </div>
@@ -147,30 +147,7 @@
 
 
     <script>
-        var element = $("#print_box"); // global variable
-        var getCanvas; // global variable
-
-
-        function takeshot() {
-            let div = document.getElementById('print_box');
-            html2canvas(div).then(
-                function (canvas) {
-                    getCanvas = canvas;
-                    
-                }
-            );
-        }
-
-        $(document).ready(function() {
-
-            $("#btn-Preview-Image").on('mouseup', function() {
-                var imgageData = getCanvas.toDataURL("image/png");
-                // Now browser starts downloading it instead of just showing it
-                var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-                $("#btn-Preview-Image").attr("download", "your_pic_name.png").attr("href", newData);
-                
-            });
-        });
+        
 
         function ContextMenu(e) {
             e.preventDefault();
