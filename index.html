@@ -18,6 +18,7 @@
 </head>
 
 <body onload="init()">
+    
 
     <div class="context-menu" id="context-menu">
         <div class="item color">
@@ -136,7 +137,7 @@
             </div>
 
             <div class="buttonarea d-flex just-center">
-                <a  id="btn-Preview-Image" >登録</a>
+                <a  id="btn-Preview-Image" href="javascript:textsave()" >登録</a>
                 <a onclick="javascript:reload()">全消去</a>
             </div>
         </div>
@@ -201,6 +202,7 @@
         }
     </script>
     <script>
+        
         function readTextFile(file) {
             var rawFile = new XMLHttpRequest();
             rawFile.open("GET", file, false);
@@ -237,7 +239,7 @@
     </script>
 
     <script src="./assets/js/style.min.js"></script>
-    <script src="./assets/js/filesave.js"></script>
+    <script src="./assets/js/textwrite.js"></script>
 
 </body>
 

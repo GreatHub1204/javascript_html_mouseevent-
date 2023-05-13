@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>URL.createObjectURL example</title>
+</head>
+<body>
+  <h1>GeeksforGeeks</h1>
+  <input type="file">
+  <img>
+  <p class="p">The URL of this image is : </p>
+</body>
+<script>
+    var Element = document.querySelector('input');
+    var img = document.querySelector('img');
+    Element.addEventListener('change', function() {
+      var url = URL.createObjectURL(Element.files[0]);
+      img.src = url;
+      console.log(url);
+      var d=document.querySelector(".p");
+      d.textContent+=url;
+});
+</script>
+</html>

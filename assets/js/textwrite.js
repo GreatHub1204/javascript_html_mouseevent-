@@ -4,7 +4,7 @@ var element = $("#print_box"); // global variable
 var getCanvas; // global variable
 
 
-let name = 'ダウンロード';
+let name = '結果';
 
 saveBtn.addEventListener('click', async function () {
 
@@ -28,9 +28,9 @@ saveBtn.addEventListener('click', async function () {
       accept: {
         'text/plain': ['.txt'],
       },
-    }, ],
+    }, ]
   };
-alert(pickerOptions)
+console.log("sdfasdf",pickerOptions);
   const fileHandle = await window.showSaveFilePicker(pickerOptions);
 
   const writableFileStream = await fileHandle.createWritable();
